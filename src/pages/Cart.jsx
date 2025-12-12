@@ -1,0 +1,41 @@
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import CartItem from "../components/CartItem";
+import "../styles/cart.css";
+
+function Cart() {
+  const cart = useSelector((state) => state.cart.cart);
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+
+
+  return (
+    <div className="container">
+      <h1 style={{ margin: "20px 0" }}>Your Cart</h1>
+
+      {cart.length === 0 && <p>No items added</p>}
+
+      <div className="cart-items">
+        {cart.map((c) => (
+          <CartItem key={c.id} item={c} />
+        ))}
+      </div>
+
+      {cart.length > 0 && (
+        <div className="checkout-box">
+          <h2>Total: ₹{total}</h2>
+
+          <Link to="/checkout">
+            <button className="btn" >Checkout</button>
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Cart;
