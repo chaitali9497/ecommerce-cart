@@ -3,8 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f3f4f6;
-  padding: 20px;
+   padding: 20px;
 }
 
 .thankyou-card {
@@ -43,6 +42,7 @@
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+  margin-top: 20px;
 }
 
 .btn-primary:hover {
@@ -55,3 +55,68 @@
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+.order-summary {
+  margin-top: 25px;
+  text-align: left;
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.order-summary h2 {
+  font-size: 20px;
+  color: #2b2d42;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.order-info-line {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #4a4e69;
+}
+
+.order-items {
+  margin-top: 15px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-item-img {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.order-item-info h3 {
+  font-size: 15px;
+  margin: 0;
+  color: #2b2d42;
+  font-weight: 600;
+}
+
+.order-item-info p {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.order-item-price {
+  margin-left: auto;
+  font-weight: 600;
+  color: #2b2d42;
+}
+

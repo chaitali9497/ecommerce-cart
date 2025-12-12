@@ -31,27 +31,22 @@ function Checkout() {
       toast.error("Enter a valid full name");
       return false;
     }
-
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       toast.error("Enter a valid email address");
       return false;
     }
-
     if (!/^[0-9]{10}$/.test(form.phone)) {
       toast.error("Phone number must be 10 digits");
       return false;
     }
-
     if (!form.city.trim()) {
       toast.error("City is required");
       return false;
     }
-
     if (!form.state.trim()) {
       toast.error("State is required");
       return false;
     }
-
     if (!/^[0-9]{6}$/.test(form.zip)) {
       toast.error("ZIP code must be 6 digits");
       return false;
@@ -63,12 +58,25 @@ function Checkout() {
   const handleCheckout = () => {
     if (!validate()) return;
 
-    toast.success("Order placed successfully!");
+toast.success("Order placed successfully!");
 
-    setTimeout(() => {
-      dispatch(clearCart());
-      navigate("/thank-you");
-    }, 700);
+setTimeout(() => {
+  const orderId = "ORD-" + Date.now();
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  navigate("/thank-you", {
+    state: {
+      cart,
+      total,
+      orderId
+    }
+  });
+
+  dispatch(clearCart());
+}, 700);
   };
 
   const handleChange = (e) => {
@@ -76,11 +84,11 @@ function Checkout() {
   };
 
   return (
-    <div className="checkout-page">
+    <div className="checkout-container">
 
      
       <div className="checkout-left">
-        <h1>Checkout</h1>
+        <h2>Checkout</h2>
 
         <div className="checkout-form">
           <input name="name" type="text" placeholder="Full name" onChange={handleChange} />
@@ -97,6 +105,28 @@ function Checkout() {
 
      
       <div className="checkout-right">
+        <h2>Order Details</h2>
+
+        <div className="order-items">
+          {cart.map((item) => (
+             <div key={item.id} className="order-item">
+      <img
+        src={item.thumbnail || item.images[0]}
+        alt={item.title}
+        className="order-item-img"
+      />
+
+      <span className="order-item-text">
+        <h3>{item.title}</h3>
+        <p>Qty: {item.quantity}</p>
+      </span>
+
+      <span>₹{item.price * item.quantity}</span>
+    
+    </div>
+          ))}
+        </div>
+
         <h3>Order Summary</h3>
 
         <p><span>Items</span><span>{totalItems}</span></p>
@@ -104,10 +134,13 @@ function Checkout() {
         <p><span>Shipping</span><span>₹{shipping}</span></p>
         <p><span>Discount</span><span>-₹{discount}</span></p>
 
-        <h2><span>Total</span><span>₹{finalTotal}</span></h2>
+        <h2 className="summary-total">
+          <span>Total</span>
+          <span>₹{finalTotal}</span>
+        </h2>
 
-        <button className="btn pay-btn" onClick={handleCheckout}>
-          Pay Now
+        <button className="order-btn" onClick={handleCheckout}>
+         Order Now
         </button>
       </div>
     </div>
