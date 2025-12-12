@@ -1,0 +1,28 @@
+.filter-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+  
+}
+
+.filter-box input,
+.filter-box select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.filter-btn {
+  background: #111;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background: #333;
+}

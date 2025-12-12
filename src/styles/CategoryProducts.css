@@ -1,0 +1,28 @@
+.category-section {
+  margin-bottom: 50px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 0 5px;
+}
+
+.category-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0d0117;
+}
+
+.view-more-btn {
+  color: #2563eb;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.view-more-btn:hover {
+  text-decoration: underline;
+}
