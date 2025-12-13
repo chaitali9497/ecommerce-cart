@@ -96,9 +96,10 @@
   }
 
   .nav {
-    position: absolute;
-    top: 70px;
-    right: 0;
+   position: fixed;
+  top: 0;
+  left: 0;
+  height: 500vh;
     width: 70%;
     background: linear-gradient(135deg, #c2ffd8, #cce7ff);
     flex-direction: column;

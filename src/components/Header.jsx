@@ -23,7 +23,7 @@ function Header() {
 
         <Link to="/" className="logo-box" onClick={closeMenu}>
           <img src={logo} alt="Logo" className="logo-img" />
-          <h1 className="logo-text">ShoppyGlobe</h1>
+          <h1 className="logo-text"><i>ShoppyGlobe</i></h1>
         </Link>
 
         

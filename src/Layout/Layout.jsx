@@ -5,9 +5,8 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main style={{ paddingTop: "80px" }}>
-        <Outlet />
-      </main>
+      <Outlet />
+      
     </>
   );
 }

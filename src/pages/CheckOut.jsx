@@ -68,12 +68,15 @@ setTimeout(() => {
   );
 
   navigate("/thank-you", {
+    replace: true ,
     state: {
       cart,
       total,
       orderId
     }
-  });
+  },
+ 
+);
 
   dispatch(clearCart());
 }, 700);
