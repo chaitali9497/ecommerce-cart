@@ -18,3 +18,41 @@
   font-size: 18px;
   color: #6b7280; 
 }
+
+.checkout-box-wrapper {
+  margin: 20px 0 20px auto; 
+  font-size: 20px;
+  font-weight: 700;
+  color: #2b2d42;
+ 
+  
+}
+
+.checkout-total{
+text-align: right;
+  width: fit-content;
+   margin: 20px 0 20px auto; 
+   padding-right: 40px;
+   
+}
+
+.checkout-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .checkout-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-btn {
+    width: 100%;
+    margin-top: 8px;
+  }
+}

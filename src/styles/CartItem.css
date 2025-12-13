@@ -1,12 +1,13 @@
 .cart-item {
   background: #ffffff;
   padding: 18px;
-  border-radius: 14px; 
+  border-radius: 14px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  margin: 20px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 170, 255, 0.15); 
+  border: 1px solid rgba(0, 170, 255, 0.15);
 }
 
 
@@ -19,15 +20,18 @@
 }
 
 
-.cart-left h3 {
+.title {
   font-size: 18px;
   font-weight: 600;
-  color: #4b2849; 
+  color: #4b2849;
+  flex: 1;  
+  text-align: center;              
 }
 
 
 .quantity-box {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 12px;
 }
@@ -35,7 +39,7 @@
 
 .quantity-btn {
   padding: 6px 14px;
-  background: linear-gradient(135deg, #4b2849, #0a7484); 
+  background: linear-gradient(135deg, #4b2849, #0a7484);
   color: white;
   border: none;
   border-radius: 8px;
@@ -45,9 +49,88 @@
   box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 
-
 .quantity-btn:hover {
   background: linear-gradient(135deg, #5d3260, #0d899e);
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 170, 255, 0.25);
+}
+
+
+.price {
+  margin-left: auto;    
+  font-size: 16px;
+  font-weight: 700;
+  color: #0a7484;
+  white-space: nowrap;
+  padding: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  
+  .cart-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+ 
+  .title {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 6px 0;
+  }
+
+  
+  .quantity-box {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+ 
+  .price {
+    width: 100%;
+    text-align: left;
+    margin-left: 0;
+    padding: 6px 0 0;
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .cart-item {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .quantity-btn {
+    padding: 5px 12px;
+    font-size: 14px;
+
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .price {
+    width: 100%;
+    text-align: right;
+    margin-left: 0;
+    padding: 6px 0 0;
+    font-size: 20px;
+  }
+
 }

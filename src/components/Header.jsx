@@ -5,11 +5,9 @@ import logo from "../assets/logo.png";
 import "../styles/header.css";
 import { useState } from "react";
 
-
- function Header() {
-  const { cart } = useSelector((state) => state.cart);
+function Header() {
+  const cart = useSelector((state) => state.cart?.cart || []);
   const [openMenu, setOpenMenu] = useState(false);
-   
 
   const totalItems = cart.reduce(
     (sum, item) => sum + item.quantity,
@@ -20,16 +18,11 @@ import { useState } from "react";
     <header className="header">
       <div className="container header-flex">
 
-       
         <Link to="/" className="logo-box">
           <img src={logo} alt="Logo" className="logo-img" />
           <h1 className="logo-text">ShoppyGlobe</h1>
         </Link>
 
-       
-     
-
-      
         <div
           className="hamburger"
           onClick={() => setOpenMenu(!openMenu)}
@@ -37,7 +30,6 @@ import { useState } from "react";
           ☰
         </div>
 
-      
         <nav className={`nav ${openMenu ? "open" : ""}`}>
           <SearchBar className="mobile-search" />
 
@@ -46,9 +38,9 @@ import { useState } from "react";
 
           <Link to="/cart" onClick={() => setOpenMenu(false)}>
             Cart
-      {totalItems > 0 && (
-        <span className="cart-badge">{totalItems}</span>
-      )}
+            {totalItems > 0 && (
+              <span className="cart-badge">{totalItems}</span>
+            )}
           </Link>
         </nav>
 
@@ -56,4 +48,5 @@ import { useState } from "react";
     </header>
   );
 }
+
 export default Header;

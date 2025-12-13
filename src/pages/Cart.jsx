@@ -29,12 +29,15 @@ function Cart() {
       </div>
 
       {cart.length > 0 && (
-        <div className="checkout-box">
+        <div className="checkout-box-wrapper">
+          <div className ="checkout-total">
           <h2>Total: ₹{total}</h2>
-
+         </div>
+         <div className = "checkout-btn">
           <Link to="/checkout">
             <button className="btn" >Checkout</button>
           </Link>
+           </div>
         </div>
       )}
     </div>
