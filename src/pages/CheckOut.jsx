@@ -11,7 +11,7 @@ function Checkout() {
 
   const cart = useSelector((state) => state.cart.cart);
 
-  const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+  const subtotal =Math.floor(cart.reduce((s, i) => s + i.price * i.quantity, 0));
   const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
   const shipping = totalItems > 0 ? 50 : 0;
   const discount = totalItems >= 3 ? 20 : 0;
@@ -130,13 +130,13 @@ setTimeout(() => {
         <h3>Order Summary</h3>
 
         <p><span>Items</span><span>{totalItems}</span></p>
-        <p><span>Subtotal</span><span>₹{subtotal}</span></p>
+        <p><span>Subtotal</span><span>₹{subtotal} . 00</span></p>
         <p><span>Shipping</span><span>₹{shipping}</span></p>
-        <p><span>Discount</span><span>-₹{discount}</span></p>
+        <p><span>Discount</span><span>-₹{discount} . 00</span></p>
 
         <h2 className="summary-total">
           <span>Total</span>
-          <span>₹{finalTotal}</span>
+          <span>₹{finalTotal}. 00</span>
         </h2>
 
         <button className="order-btn" onClick={handleCheckout}>

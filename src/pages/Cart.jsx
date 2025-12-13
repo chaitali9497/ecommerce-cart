@@ -7,7 +7,7 @@ function Cart() {
   const cart = useSelector((state) => state.cart.cart);
 
   const total = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+    (sum, item) => Math.floor(sum + item.price * item.quantity),
     0
   );
 
@@ -31,7 +31,7 @@ function Cart() {
       {cart.length > 0 && (
         <div className="checkout-box-wrapper">
           <div className ="checkout-total">
-          <h2>Total: ₹{total}</h2>
+          <h2>Total: ₹{total}. 00</h2>
          </div>
          <div className = "checkout-btn">
           <Link to="/checkout">

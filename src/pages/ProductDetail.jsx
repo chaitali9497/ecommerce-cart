@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {addToCart,increaseQty,decreaseQty} from "../redux/CartSlice";
 import "../styles/ProductDetails.css";
 import useFetchProducts from "../utils/hooks/useFetchProducts";
+import Loader from "../components/Loader";
 
 function ProductDetail() {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function ProductDetail() {
 
   const cartItem = cartItems.find((item) => item.id == id);
 
-  if (!product) return <p>Loading...</p>;
+  if (!product) return <Loader />;
 
   return (
     <div className="container">

@@ -3,6 +3,11 @@
   max-width: 1300px;
   margin: auto;
 }
+.home-search {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 30px;
+}
 
 
 .home-title {

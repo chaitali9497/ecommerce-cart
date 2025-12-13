@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import SearchBar from "./SearchBar";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { FaHome, FaBoxOpen, FaShoppingCart } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import "../styles/header.css";
 import { useState } from "react";
@@ -14,35 +15,45 @@ function Header() {
     0
   );
 
+  const closeMenu = () => setOpenMenu(false);
+
   return (
     <header className="header">
       <div className="container header-flex">
 
-        <Link to="/" className="logo-box">
+        <Link to="/" className="logo-box" onClick={closeMenu}>
           <img src={logo} alt="Logo" className="logo-img" />
           <h1 className="logo-text">ShoppyGlobe</h1>
         </Link>
 
+        
         <div
           className="hamburger"
           onClick={() => setOpenMenu(!openMenu)}
         >
-          ☰
+          {openMenu ? <FaTimes /> : <FaBars />}
         </div>
 
-        <nav className={`nav ${openMenu ? "open" : ""}`}>
-          <SearchBar className="mobile-search" />
+       <nav className={`nav ${openMenu ? "open" : ""}`}>
+  <Link to="/" onClick={closeMenu} className="nav-link">
+    <FaHome className="nav-icon" />
+    <span>Home</span>
+  </Link>
 
-          <Link to="/" onClick={() => setOpenMenu(false)}>Home</Link>
-          <Link to="/products" onClick={() => setOpenMenu(false)}>Products</Link>
+  <Link to="/products" onClick={closeMenu} className="nav-link">
+    <FaBoxOpen className="nav-icon" />
+    <span>Products</span>
+  </Link>
 
-          <Link to="/cart" onClick={() => setOpenMenu(false)}>
-            Cart
-            {totalItems > 0 && (
-              <span className="cart-badge">{totalItems}</span>
-            )}
-          </Link>
-        </nav>
+  <Link to="/cart" onClick={closeMenu} className="nav-link cart-link">
+    <FaShoppingCart className="nav-icon" />
+    <span>Cart</span>
+
+    {totalItems > 0 && (
+      <span className="cart-badge">{totalItems}</span>
+    )}
+  </Link>
+</nav>
 
       </div>
     </header>

@@ -1,17 +1,16 @@
-import { useDispatch } from "react-redux";
-import { setSearchTerm } from "../redux/CartSlice";
+
 import "../styles/SearchBar.css";
 
- function SearchBar() {
-  const dispatch = useDispatch();
-
+function SearchBar({ search, setSearch }) {
   return (
     <input
       type="text"
       placeholder="Search products..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
       className="search-input"
-      onChange={(e) => dispatch(setSearchTerm(e.target.value))}
     />
   );
 }
+
 export default SearchBar;

@@ -164,3 +164,31 @@
   transform: none;
 }
 }
+@media (max-width: 480px){
+  .detail-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+  }
+
+  .detail-box img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .detail-title {
+    font-size: 24px;
+  }
+
+  .detail-price {
+    font-size: 22px;
+  }
+  .quantity-btn:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+}
