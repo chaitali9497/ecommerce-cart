@@ -24,7 +24,7 @@ function Home() {
       {Object.keys(grouped).map((cat) => (
         <div key={cat} className="category-section">
 
-          {/* Category Title + More button */}
+         
           <div className="category-header">
             <h2 className="category-title">{cat}</h2>
 
@@ -33,7 +33,7 @@ function Home() {
             </Link>
           </div>
 
-          {/* Show only first 4 products */}
+      
           <div className="home-grid">
             {grouped[cat].slice(0, 4).map((p) => (
               <ProductItem key={p.id} product={p} />
