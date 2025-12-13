@@ -14,10 +14,13 @@ function Cart() {
 
 
   return (
-    <div className="container">
-      <h1 style={{ margin: "20px 0" }}>Your Cart</h1>
+   <div className="container cart-page">
+  <h1 className="cart-title">Your Cart</h1>
 
-      {cart.length === 0 && <p>No items added</p>}
+  {cart.length === 0 && (
+    <p className="empty-cart">No items added</p>
+  )}
+
 
       <div className="cart-items">
         {cart.map((c) => (

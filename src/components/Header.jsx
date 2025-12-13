@@ -5,9 +5,16 @@ import logo from "../assets/logo.png";
 import "../styles/header.css";
 import { useState } from "react";
 
+
  function Header() {
   const { cart } = useSelector((state) => state.cart);
   const [openMenu, setOpenMenu] = useState(false);
+   
+
+  const totalItems = cart.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
 
   return (
     <header className="header">
@@ -39,9 +46,9 @@ import { useState } from "react";
 
           <Link to="/cart" onClick={() => setOpenMenu(false)}>
             Cart
-            {cart.length > 0 && (
-              <span className="cart-badge">{cart.length}</span>
-            )}
+      {totalItems > 0 && (
+        <span className="cart-badge">{totalItems}</span>
+      )}
           </Link>
         </nav>
 
