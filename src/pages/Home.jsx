@@ -5,6 +5,7 @@ import ProductItem from "../components/ProductItem";
 import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 
 function Home() {
   const { products, loading, error } = useFetchProducts();
@@ -35,6 +36,7 @@ function Home() {
   let hasResults = false;
 
   return (
+    <>
     <div className="home-container fade-in">
 
       
@@ -68,6 +70,7 @@ function Home() {
           <div key={cat} className="category-section">
             <div className="category-header">
               <h2 className="category-title">{cat}</h2>
+              {/* <p className="category-subtitle">Best deals today</p> */}
 
               <Link to={`/category/${cat}`} className="view-more-btn">
                 More →
@@ -97,7 +100,10 @@ function Home() {
           <p>Try searching with different keywords</p>
         </div>
       )}
+      
     </div>
+    <Footer/>
+    </>
   );
 }
 

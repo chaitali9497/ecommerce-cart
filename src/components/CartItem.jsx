@@ -41,7 +41,9 @@ function CartItem({ item }) {
       </button>
 
       
-      <span className="price">₹{item.price}</span>
+      <span className="price">
+          ₹{item.price * item.quantity}
+        </span>
     </div>
   );
 }

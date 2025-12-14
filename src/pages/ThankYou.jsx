@@ -8,19 +8,33 @@ function ThankYou() {
   const { orderId, cart, total } = location.state || {};
 
 
-  useEffect(() => {
-    window.history.pushState(null, "", window.location.href);
+useEffect(() => {
+  if (!location.state) {
+    navigate("/", { replace: true });
+  }
+}, [location, navigate]);
 
-    const handlePopState = () => {
-      window.history.go(1);
-    };
 
-    window.addEventListener("popstate", handlePopState);
+useEffect(() => {
+  window.history.pushState(null, "", window.location.href);
 
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
-  }, []);
+  const handlePopState = () => {
+    window.history.go(1);
+  };
+
+  window.addEventListener("popstate", handlePopState);
+  return () => window.removeEventListener("popstate", handlePopState);
+}, []);
+
+
+useEffect(() => {
+  const handler = (e) => {
+    e.preventDefault();
+    e.returnValue = "";
+  };
+  window.addEventListener("beforeunload", handler);
+  return () => window.removeEventListener("beforeunload", handler);
+}, []);
 
   return (
     <div className="thankyou-container">
