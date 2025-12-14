@@ -1,31 +1,52 @@
 .product-list-container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: auto;
-  padding: 20px 0;
+  padding: 20px 16px;
 }
+
 
 
 .product-list-title {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 25px;
-  color: #f5e9ff; 
+  color: #f5e9ff;
   text-align: center;
   letter-spacing: 0.5px;
 }
 
 
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 22px;
-  margin-bottom: 40px;
+}
+
+
+
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 
 @media (max-width: 768px) {
   .product-list-title {
     font-size: 22px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 }

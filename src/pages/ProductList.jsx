@@ -40,7 +40,7 @@ function ProductList() {
 
   return (
     <div className="container">
-      <h1>All Products</h1>
+     
 
       <FilterBar
         categories={[...new Set(products.map((p) => p.category))]}
