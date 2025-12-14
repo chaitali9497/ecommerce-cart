@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { removeFromCart, increaseQty, decreaseQty } from "../redux/CartSlice";
+import { removeFromCart, increaseQty, decreaseQty } from "../redux/cartSlice";
 import "../styles/cartItem.css";
 
 function CartItem({ item }) {
@@ -42,8 +42,8 @@ function CartItem({ item }) {
 
       
       <span className="price">
-          ₹{item.price * item.quantity}
-        </span>
+  ₹ {(Number(item.price) * item.quantity).toFixed(2)}
+            </span>
     </div>
   );
 }

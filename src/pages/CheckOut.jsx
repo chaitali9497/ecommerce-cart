@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { clearCart } from "../redux/CartSlice";
+import { clearCart } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -11,8 +11,8 @@ function Checkout() {
 
   const cart = useSelector((state) => state.cart.cart);
 
-  const subtotal = Math.floor(
-    cart.reduce((s, i) => s + i.price * i.quantity, 0)
+  const subtotal =(
+    cart.reduce((s, i) => s + i.price * i.quantity, 0).toFixed(2)
   );
   const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
   const shipping = totalItems > 0 ? 50 : 0;
@@ -166,6 +166,7 @@ function Checkout() {
         <div className="order-items">
           {cart.map((item) => (
             <div key={item.id} className="order-item">
+              <div className="box">
               <img
                 src={item.thumbnail || item.images[0]}
                 alt={item.title}
@@ -176,22 +177,23 @@ function Checkout() {
                 <h3>{item.title}</h3>
                 <p>Qty: {item.quantity}</p>
               </span>
-
-              <span>₹{item.price * item.quantity}</span>
+              </div>
+              
+              <span className ="Price-box">₹{(item.price * item.quantity).toFixed(2)}</span>
             </div>
           ))}
         </div>
-
+       <div className="Summary-box">
         <h3>Order Summary</h3>
 
         <p><span>Items</span><span>{totalItems}</span></p>
         <p><span>Subtotal</span><span>₹{subtotal}.00</span></p>
-        <p><span>Shipping</span><span>₹{shipping}</span></p>
+        <p><span>Shipping</span><span>₹{shipping}.00</span></p>
         <p><span>Discount</span><span>-₹{discount}.00</span></p>
-
+        </div>
         <h2 className="summary-total">
           <span>Total</span>
-          <span>₹{finalTotal}.00</span>
+          <span>₹{(finalTotal).toFixed(2)}</span>
         </h2>
 
         <button

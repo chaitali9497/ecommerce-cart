@@ -1,7 +1,7 @@
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
   align-items: stretch;          
 }
@@ -63,6 +63,25 @@
   font-size: 20px;
   font-weight: bold;
   color: #0a7484;
+}
+.add-to-cart-btn {
+  padding: 12px 22px;
+  border: none;
+  background: linear-gradient(135deg, #4b2849, #0a7484);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-top: 20px;
+}
+
+
+.add-to-cart-btn:hover {
+  background: linear-gradient(135deg, #5d3260, #0d899e);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 170, 255, 0.3);
 }
 @media (max-width: 1024px) {
   .product-grid {

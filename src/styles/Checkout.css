@@ -77,7 +77,8 @@
 
 .delivery-options label span {
   line-height: 2;
-  display :block
+  display :block;
+  margin-right:0;
 }
 
 .delivery-options input[type="radio"] {
@@ -227,8 +228,27 @@
 
 .checkout-right p {
   display: flex;
-  justify-content: space-between;
   margin: 8px 0;
+}
+.Price-box {
+  justify-self: start;
+  text-align: right;
+}
+.box {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+
+  justify-self: start;
+  text-align: left;
+}
+
+.Summary-box p {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 8px 0;
+  font-size: 15px;
 }
 
 .summary-total {

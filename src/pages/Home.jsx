@@ -6,13 +6,28 @@ import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const { products, loading, error } = useFetchProducts();
-
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const navigate = useNavigate();
 
+  
+  useEffect(() => {
+    window.history.pushState(null, "", window.location.href);
+
+    const handlePopState = () => {
+      window.history.pushState(null, "", window.location.href);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
   
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -68,16 +83,15 @@ function Home() {
 
         return (
           <div key={cat} className="category-section">
-            <div className="category-header">
-              <h2 className="category-title">{cat}</h2>
-              {/* <p className="category-subtitle">Best deals today</p> */}
+          {!debouncedSearch && (
+  <div className="category-header">
+    <h2 className="category-title">{cat}</h2>
 
-              <Link to={`/category/${cat}`} className="view-more-btn">
-                More →
-              </Link>
-            </div>
-
-            <div className="home-grid">
+    <Link to={`/category/${cat}`} className="view-more-btn">
+      View More →
+    </Link>
+  </div>
+)}      <div className="home-grid">
               {(debouncedSearch
                 ? filteredProducts
                 : filteredProducts.slice(0, 4)

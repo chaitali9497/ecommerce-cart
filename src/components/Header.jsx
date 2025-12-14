@@ -9,7 +9,8 @@ function Header() {
   const cart = useSelector((state) => state.cart?.cart || []);
   const [openMenu, setOpenMenu] = useState(false);
 
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  
+  
   const closeMenu = () => setOpenMenu(false);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ function Header() {
       <div className="container">
         <div className="header-flex">
 
-          {/* LOGO */}
+          
           <Link to="/" className="logo-box" onClick={closeMenu}>
             <img src={logo} alt="Logo" className="logo-img" />
             <h1 className="logo-text">
@@ -44,9 +45,9 @@ function Header() {
             <Link to="/cart" onClick={closeMenu} className="nav-link cart-link">
               <FaShoppingCart className="nav-icon" />
               <span>Cart</span>
-              {totalItems > 0 && (
-                <span className="cart-badge">{totalItems}</span>
-              )}
+              {cart.length > 0 && (
+              <span className="cart-badge">{cart.length}</span>
+            )}
             </Link>
           </nav>
 

@@ -7,9 +7,9 @@ function Cart() {
   const cart = useSelector((state) => state.cart.cart);
 
   const total = cart.reduce(
-    (sum, item) => Math.floor(sum + item.price * item.quantity),
+    (sum, item) =>(sum + item.price * item.quantity),
     0
-  );
+  ).toFixed(2);
 
 
 
