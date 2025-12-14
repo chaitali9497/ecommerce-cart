@@ -2,6 +2,12 @@
   width: 90%;
   max-width: 1200px;
   margin: auto;
+  background: linear-gradient(
+    135deg,
+    #c2ffd8 0%,
+    #cce7ff 50%,
+    #b0d6ff 100%
+  );
 }
 
 

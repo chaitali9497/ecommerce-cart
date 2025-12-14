@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 import ProductList from "../pages/ProductList";
@@ -20,14 +19,13 @@ const AppRouter = createBrowserRouter([
       { path: "product/:id", element: <ProductDetail /> },
       { path: "cart", element: <Cart /> },
       { path: "checkout", element: <Checkout /> },
-      {
-  path: "/category/:categoryName",
-  element: <CategoryProducts />,
-},
-{path: "thank-You", element: <ThankYou/> },
-      { path: "*", element: <PageNotFound /> },
+      { path: "category/:categoryName", element: <CategoryProducts /> },
+      { path: "thank-you", element: <ThankYou /> },
     ],
   },
+
+ 
+  { path: "*", element: <PageNotFound /> },
 ]);
 
 export default AppRouter;

@@ -1,7 +1,20 @@
 .notfound {
-  text-align: center;
-  padding: 80px 0;
+  position: fixed;        
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: #ffffff;   
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;         
 }
+
 
 .notfound h1 {
   font-size: 80px;
@@ -12,3 +25,20 @@
   margin-top: 20px;
   color: #555;
 }
+.back-home-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #3893f5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background: #1f78d1;
+  transform: translateY(-2px);
+}
+

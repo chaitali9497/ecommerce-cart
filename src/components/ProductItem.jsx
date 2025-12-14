@@ -5,6 +5,7 @@ import HighlightText from "./HighlightText";
 function ProductItem({ product, search }) {
   return (
     <div className="product-grid">
+    
       <Link to={`/product/${product.id}`} className="product-card">
         <img
           src={product.thumbnail}

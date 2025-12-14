@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: linear-gradient(
+
+body{
+   background: linear-gradient(
     135deg,
     #c2ffd8 0%,
     #cce7ff 50%,
     #b0d6ff 100%
   );
-
-  color: #4b2849; 
-  min-height: 100vh;
 }
 
 
 html {
   scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;   
+  font-family: "Poppins", Arial, sans-serif;
+  /*  */
+   color: #4b2849; 
 }
