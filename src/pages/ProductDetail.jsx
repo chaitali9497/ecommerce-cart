@@ -3,10 +3,13 @@ import {addToCart,increaseQty,decreaseQty} from "../redux/cartSlice";
 import "../styles/ProductDetails.css";
 import useFetchProducts from "../utils/hooks/useFetchProducts";
 import Loader from "../components/Loader";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function ProductDetail() {
   const dispatch = useDispatch();
   const { products } = useFetchProducts();
+  const navigate = useNavigate();
 
   const cartItems = useSelector((state) => state.cart.cart);
 
@@ -18,6 +21,7 @@ function ProductDetail() {
   if (!product) return <Loader />;
 
   return (
+    <div className="container-wrapper">
     <div className="container">
       <div className="detail-box">
         <img src={product.thumbnail} alt={product.title} />
@@ -39,7 +43,7 @@ function ProductDetail() {
 
         
           {cartItem && (
-  <div className="cart-action-row">
+  <div className="details-action-row">
     <button className="btn added" disabled>
       Added to Cart
     </button>
@@ -67,6 +71,15 @@ function ProductDetail() {
 
         </div>
       </div>
+    </div>
+    <button
+  className="floating-back-btn"
+  onClick={() => navigate(-1)}
+  aria-label="Go back"
+>
+  <FaArrowLeft />
+</button>
+
     </div>
   );
 }

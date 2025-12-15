@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "../styles/Checkout.css";
- import { FaHome, FaStore } from "react-icons/fa";
+import { FaHome, FaStore } from "react-icons/fa";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -12,9 +12,11 @@ function Checkout() {
 
   const cart = useSelector((state) => state.cart.cart);
 
-  const subtotal =(
-    cart.reduce((s, i) => s + i.price * i.quantity, 0).toFixed(2)
+  const subtotal = cart.reduce(
+    (s, i) => s + i.price * i.quantity,
+    0
   );
+
   const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
   const shipping = totalItems > 0 ? 50 : 0;
   const discount = totalItems >= 3 ? 20 : 0;
@@ -82,16 +84,12 @@ function Checkout() {
 
     setTimeout(() => {
       const orderId = "ORD-" + Date.now();
-      const total = cart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
-      );
 
       navigate("/thank-you", {
         replace: true,
         state: {
           cart,
-          total,
+          total: finalTotal.toFixed(2),
           orderId,
         },
       });
@@ -102,7 +100,7 @@ function Checkout() {
 
   return (
     <div className="checkout-container">
-    
+     
       <div className="checkout-left">
         <h2>Checkout</h2>
 
@@ -117,53 +115,46 @@ function Checkout() {
             <input name="zip" placeholder="ZIP Code" onChange={handleChange} />
           </div>
 
-          
-        
-
-<div className="delivery-options">
-  <label className="delivery-card">
-    <input
-      type="radio"
-      name="deliveryType"
-      value="home"
-      onChange={handleChange}
-    />
-    <div className="delivery-content">
-      <FaHome className="delivery-icon" />
-      <span className="delivery-text">Home Delivery</span>
-    </div>
-  </label>
-
-  <label className="delivery-card">
-    <input
-      type="radio"
-      name="deliveryType"
-      value="pickup"
-      onChange={handleChange}
-    />
-    <div className="delivery-content">
-      <FaStore className="delivery-icon" />
-      <span className="delivery-text">Store Pickup</span>
-    </div>
-  </label>
-</div>
-
          
+          <div className="delivery-options">
+            <label className="delivery-card">
+              <input
+                type="radio"
+                name="deliveryType"
+                value="home"
+                onChange={handleChange}
+              />
+              <span className="radio-box"></span>
+              <FaHome className="delivery-icon" />
+              <span>Home Delivery</span>
+            </label>
+
+            <label className="delivery-card">
+              <input
+                type="radio"
+                name="deliveryType"
+                value="pickup"
+                onChange={handleChange}
+              />
+              <span className="radio-box"></span>
+              <FaStore className="delivery-icon" />
+              <span>Pick up from Store</span>
+            </label>
+          </div>
+
+          
           <div className="terms">
-            <label>
+            <label className="terms-card">
               <input
                 type="checkbox"
                 name="agreeTerms"
                 onChange={handleChange}
               />
-              I agree with the <span>Terms & Conditions</span>
+              <span className="checkbox-box"></span>
+              <span className="terms-text">
+                I agree with the <span className="terms-link">Terms & Conditions</span>
+              </span>
             </label>
-
-            {!form.agreeTerms && (
-              <p className="terms-warning">
-                Please agree to Terms & Conditions to continue
-              </p>
-            )}
           </div>
         </div>
       </div>
@@ -176,33 +167,36 @@ function Checkout() {
           {cart.map((item) => (
             <div key={item.id} className="order-item">
               <div className="box">
-              <img
-                src={item.thumbnail || item.images[0]}
-                alt={item.title}
-                className="order-item-img"
-              />
+                <img
+                  src={item.thumbnail || item.images?.[0]}
+                  alt={item.title}
+                  className="order-item-img"
+                />
 
-              <span className="order-item-text">
-                <h3>{item.title}</h3>
-                <p>Qty: {item.quantity}</p>
-              </span>
+                <span className="order-item-text">
+                  <h3>{item.title}</h3>
+                  <p>Qty: {item.quantity}</p>
+                </span>
               </div>
-              
-              <span className ="Price-box">₹{(item.price * item.quantity).toFixed(2)}</span>
+
+              <span className="Price-box">
+                ₹{(item.price * item.quantity).toFixed(2)}
+              </span>
             </div>
           ))}
         </div>
-       <div className="Summary-box">
-        <h3>Order Summary</h3>
 
-        <p><span>Items</span><span>{totalItems}</span></p>
-        <p><span>Subtotal</span><span>₹{subtotal}.00</span></p>
-        <p><span>Shipping</span><span>₹{shipping}.00</span></p>
-        <p><span>Discount</span><span>-₹{discount}.00</span></p>
+        <div className="Summary-box">
+          <h3>Order Summary</h3>
+          <p><span>Items</span><span>{totalItems}</span></p>
+          <p><span>Subtotal</span><span>₹{subtotal.toFixed(2)}</span></p>
+          <p><span>Shipping</span><span>₹{shipping.toFixed(2)}</span></p>
+          <p><span>Discount</span><span>-₹{discount.toFixed(2)}</span></p>
         </div>
+
         <h2 className="summary-total">
           <span>Total</span>
-          <span>₹{(finalTotal).toFixed(2)}</span>
+          <span>₹{finalTotal.toFixed(2)}</span>
         </h2>
 
         <button

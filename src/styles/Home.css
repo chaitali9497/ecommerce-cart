@@ -68,12 +68,24 @@
 .floating-back-btn:hover {
   transform: translateY(-3px);
 }
+@media (max-width: 768px) {
+  .floating-back-btn {
+    top: 78px;        
+    left: 12px;
+
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+
+    box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+  }
+}
 
 
 .no-results {
   text-align: center;
   font-size: 20px;
-  color: #c7d2fe; 
+  color: black; 
   margin-top: 40px;
 }
 
