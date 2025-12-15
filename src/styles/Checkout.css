@@ -38,8 +38,8 @@
 }
 
 .checkout-form input:focus {
-  border-color: #c29ff7;
-  box-shadow: 0 0 6px rgba(124,58,237,0.25);
+  border-color: #dcdcdc;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);;
   background: #ffffff;
 }
 
@@ -59,69 +59,52 @@
   margin: 10px 0 20px;
 }
 
-.delivery-options label {
+.delivery-card {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 10px;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
   background: #fafafa;
-  border: 1px solid rgba(124, 58, 237, 0.12);
-  font-size: 15px;
-  font-weight: 500;
+  border: 2px solid rgba(124, 58, 237, 0.15);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.delivery-card input {
+  display: none;
+}
+
+.delivery-icon {
+  font-size: 22px;
   color: #2b2d42;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  line-height: 1;
 }
 
-.delivery-options label span {
-  line-height: 2;
-  display :block;
-  margin-right:0;
+.delivery-card span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2b2d42;
 }
 
-.delivery-options input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 2px solid #c4b5fd;
+
+.delivery-card:has(input:checked) {
+  border-color: #dcdcdc;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);;
   background: #fafafa;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: all 0.25s ease;
-  flex-shrink: 0;
+ 
 }
 
-.delivery-options input[type="radio"]::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-  transform: scale(0);
-  transition: transform 0.2s ease;
+
+.delivery-card:hover {
+  transform: translateY(-2px);
 }
 
-.delivery-options input[type="radio"]:checked {
-  background: linear-gradient(135deg, #7c3aed, #4b79ff);
-  border-color: transparent;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.35);
-}
 
-.delivery-options input[type="radio"]:checked::before {
-  transform: scale(1);
-}
-
-.delivery-options input[type="radio"]:hover {
-  border-color: #7c3aed;
-}
-
-.delivery-options label:has(input:checked) {
-  border-color: #7c3aed;
+@media (max-width: 600px) {
+  .delivery-options {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 

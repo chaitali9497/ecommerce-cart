@@ -7,6 +7,8 @@ import SearchBar from "../components/SearchBar";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeft,FaArrowRight } from "react-icons/fa";
+
 
 function Home() {
   const { products, loading, error } = useFetchProducts();
@@ -63,6 +65,20 @@ function Home() {
              />
       </div>
 
+    {debouncedSearch && (
+  <button
+    className="floating-back-btn"
+    onClick={() => {
+      setSearch("");
+      setDebouncedSearch("");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }}
+    title="Back to Home"
+  >
+    <FaArrowLeft />
+  </button>
+)}
+
       {Object.keys(grouped).map((cat) => {
         const filteredProducts = grouped[cat].filter((p) => {
           if (!debouncedSearch) return true;
@@ -87,11 +103,19 @@ function Home() {
   <div className="category-header">
     <h2 className="category-title">{cat}</h2>
 
-    <Link to={`/category/${cat}`} className="view-more-btn">
-      View More →
-    </Link>
+    <Link
+  to={`/category/${cat}`}
+  className="view-more-float"
+  title={`View more ${cat}`}
+>
+  <FaArrowRight />
+</Link>
   </div>
-)}      <div className="home-grid">
+)}     
+
+  
+
+ <div className="home-grid">
               {(debouncedSearch
                 ? filteredProducts
                 : filteredProducts.slice(0, 4)

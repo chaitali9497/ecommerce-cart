@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState ,useRef} from "react";
 import { FaTimes, FaHistory,FaSearch } from "react-icons/fa";
 import "../styles/SearchBar.css";
+import { useNavigate } from "react-router-dom";
 
 const STORAGE_KEY = "recent_searches";
 
@@ -8,6 +9,7 @@ function SearchBar({ search, setSearch, products }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [recent, setRecent] = useState([]);
   const wrapperRef = useRef(null);
+  const navigate = useNavigate();
 
   
   useEffect(() => {
@@ -75,6 +77,7 @@ function SearchBar({ search, setSearch, products }) {
             if (e.key === "Enter") {
               saveSearch(search);
               setShowSuggestions(false);
+              navigate(`/search?q=${encodeURIComponent(search)}`);
             }
           }}
           className="search-input"

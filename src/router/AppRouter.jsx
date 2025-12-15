@@ -15,6 +15,7 @@ const CategoryProducts = lazy(() => import("../pages/CategoryProducts"));
 const ThankYou = lazy(() => import("../pages/ThankYou"));
 
 
+
 const AppRouter = createBrowserRouter([
   {
     path: "/",
@@ -71,6 +72,7 @@ const AppRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+     
     ],
   },
 

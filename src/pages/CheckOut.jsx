@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "../styles/Checkout.css";
+ import { FaHome, FaStore } from "react-icons/fa";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -117,27 +118,35 @@ function Checkout() {
           </div>
 
           
-          <div className="delivery-options">
-            <label>
-              <input
-                type="radio"
-                name="deliveryType"
-                value="home"
-                onChange={handleChange}
-              />
-              <span>Home Delivery</span>
-            </label>
+        
 
-            <label>
-              <input
-                type="radio"
-                name="deliveryType"
-                value="pickup"
-                onChange={handleChange}
-              />
-               <span>Pick up from Store</span>
-            </label>
-          </div>
+<div className="delivery-options">
+  <label className="delivery-card">
+    <input
+      type="radio"
+      name="deliveryType"
+      value="home"
+      onChange={handleChange}
+    />
+    <div className="delivery-content">
+      <FaHome className="delivery-icon" />
+      <span className="delivery-text">Home Delivery</span>
+    </div>
+  </label>
+
+  <label className="delivery-card">
+    <input
+      type="radio"
+      name="deliveryType"
+      value="pickup"
+      onChange={handleChange}
+    />
+    <div className="delivery-content">
+      <FaStore className="delivery-icon" />
+      <span className="delivery-text">Store Pickup</span>
+    </div>
+  </label>
+</div>
 
          
           <div className="terms">
