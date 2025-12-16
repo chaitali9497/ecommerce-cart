@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {FaBars,FaTimes,FaHome,FaBoxOpen, FaShoppingCart,} from "react-icons/fa";
 import logo from "../assets/logo.png";
-import "../styles/header.css";
+import "../styles/Header.css";
 import { useState, useEffect } from "react";
 
 function Header() {

@@ -1,4 +1,4 @@
-import "../styles/footer.css";
+import "../styles/Footer.css";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 

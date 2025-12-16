@@ -3,7 +3,7 @@ import ProductItem from "../components/ProductItem";
 import Loader from "../components/Loader";
 import FilterBar from "../components/Filter";
 import useFetchProducts from "../utils/hooks/useFetchProducts";
-import "../styles/productList.css";
+import "../styles/ProductList.css";
 
 function ProductList() {
   const { products, loading } = useFetchProducts();
