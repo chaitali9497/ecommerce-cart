@@ -2,7 +2,7 @@ import "../styles/ProductItem.css";
 import { Link } from "react-router-dom";
 import HighlightText from "./HighlightText";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, increaseQty, decreaseQty } from "../redux/cartSlice";
+import { addToCart, increaseQty, decreaseQty } from "../redux/CartSlice";
 
 function ProductItem({ product, search }) {
   const dispatch = useDispatch();

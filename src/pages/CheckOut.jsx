@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { clearCart } from "../redux/cartSlice";
+import { clearCart } from "../redux/CartSlice";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";

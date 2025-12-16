@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {addToCart,increaseQty,decreaseQty} from "./redux/cartSlice";
+import {addToCart,increaseQty,decreaseQty} from "./redux/CartSlice";
 import "../styles/ProductDetails.css";
 import useFetchProducts from "../utils/hooks/useFetchProducts";
 import Loader from "../components/Loader";
