@@ -50,3 +50,19 @@
     grid-template-columns: 1fr;
   }
 }
+.empty-products {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.empty-products h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #2b2d42;
+}
+
+.empty-products p {
+  font-size: 15px;
+}

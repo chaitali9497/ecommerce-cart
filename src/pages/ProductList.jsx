@@ -13,15 +13,11 @@ function ProductList() {
     setFiltered(products);
   }, [products]);
 
-  const handleFilter = ({ search, category, price }) => {
+  const handleFilter = ({  category, price }) => {
     let temp = [...products];
 
     
-    if (search) {
-      temp = temp.filter((p) =>
-        p.title.toLowerCase().includes(search.toLowerCase())
-      );
-    }
+  
 
    
     if (category) {
@@ -47,11 +43,18 @@ function ProductList() {
         onFilter={handleFilter}
       />
 
-      <div className="product-grid">
-        {filtered.map((p) => (
-          <ProductItem key={p.id} product={p} />
-        ))}
-      </div>
+      {filtered.length === 0 ? (
+  <div className="empty-products">
+    <h3>No products found</h3>
+    <p>Try changing category or price range</p>
+  </div>
+) : (
+  <div className="product-grid">
+    {filtered.map((p) => (
+      <ProductItem key={p.id} product={p} />
+    ))}
+  </div>
+)}
     </div>
   );
 }

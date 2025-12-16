@@ -204,7 +204,7 @@ function Checkout() {
           onClick={handleCheckout}
           disabled={!form.agreeTerms}
         >
-          Order Now
+          Place Order
         </button>
       </div>
     </div>

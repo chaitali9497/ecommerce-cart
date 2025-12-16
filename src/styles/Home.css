@@ -2,13 +2,7 @@
   padding: 30px 20px;
   max-width: 1300px;
   margin: auto;
-  background: linear-gradient(
-    135deg,
-    #c2ffd8 0%,
-    #cce7ff 50%,
-    #b0d6ff 100%
-    
-  );
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -23,6 +23,14 @@
   margin-bottom: 20px;
   color: #2b2d42;
   font-weight: 700;
+  text-transform: capitalize;
+  font-size: 20px;
+  
+}
+.checkout-left h2{
+  text-align: center;
+  
+
 }
 
 
@@ -35,6 +43,8 @@
   font-size: 15px;
   background: #fafafa;
   transition: 0.25s ease;
+  margin-top: 20px ;
+  margin-left: 10px;
 }
 
 .checkout-form input:focus {
@@ -70,6 +80,7 @@
   border: 1.5px solid rgba(124, 58, 237, 0.15);
   cursor: pointer;
   transition: 0.25s ease;
+  margin-top: 25px;
 }
 
 
@@ -140,7 +151,7 @@
   align-items: flex-start;
   gap: 12px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .terms-card input {

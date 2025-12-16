@@ -31,7 +31,7 @@ function Cart() {
       {cart.length > 0 && (
         <div className="checkout-box-wrapper">
           <div className ="checkout-total">
-          <h2>Total: ₹{total}. 00</h2>
+          <h2>Total: ₹{Number(total).toFixed(2)}</h2>
          </div>
          <div className = "checkout-btn">
           <Link to="/checkout">

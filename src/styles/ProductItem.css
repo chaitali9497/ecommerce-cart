@@ -62,7 +62,7 @@
 }
 
 .card-actions {
-  min-height: 96px;
+  min-height: 70px;
   margin-top: auto;
   display: flex;
   flex-direction: column;
