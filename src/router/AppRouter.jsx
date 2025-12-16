@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
-import Layout from "../layout/Layout";
+import Layout from "../Layout/Layout";
 import Home from "../pages/Home";
 import PageNotFound from "../pages/PageNotFound";
 import Loader from "../components/Loader";
