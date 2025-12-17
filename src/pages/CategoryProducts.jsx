@@ -3,10 +3,13 @@ import useFetchProducts from "../utils/hooks/useFetchProducts";
 import Loader from "../components/Loader";
 import ProductItem from "../components/ProductItem";
 import "../styles/CategoryProducts.css";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 function CategoryProducts() {
   const { categoryName } = useParams();
   const { products, loading, error } = useFetchProducts();
+    const navigate = useNavigate();
 
   if (loading) return <Loader />;
   if (error) return <p className="text-center text-red-500">{error}</p>;
@@ -17,6 +20,11 @@ function CategoryProducts() {
 
   return (
     <div className="cat-container fade-in">
+
+       <button className="back-btn" onClick={() => navigate(-1)}>
+        <FaArrowLeft />
+        <span>Back</span>
+      </button>
       <h1 className="cat-title">{categoryName}</h1>
 
       <div className="cat-grid">
