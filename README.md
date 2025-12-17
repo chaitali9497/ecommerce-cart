@@ -109,6 +109,28 @@ src/
 [https://github.com/chaitali9497/ecommerce-cart](https://github.com/chaitali9497/ecommerce-cart)
 
 ---
+Live Demo
+
+ ShoppyGlobe – E-commerce Cart Application
+Experience the live application here:
+
+ ## Live URL: https://ecommerce-cart-wpuo.vercel.app/
+
+## What You Can Try in the Live Demo
+
+* Browse products across multiple categories
+
+* Search products with real-time highlighted results
+
+* View detailed product pages
+
+* Add products to cart and manage quantities
+
+* See dynamic price, subtotal, shipping, and discounts
+
+* Complete the checkout flow and view order confirmation
+
+* Test responsive design on mobile, tablet, and desktop
 
 ##  Author
 
