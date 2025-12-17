@@ -114,7 +114,7 @@ Live Demo
  ShoppyGlobe – E-commerce Cart Application
 Experience the live application here:
 
- ## Live URL: https://ecommerce-cart-wpuo.vercel.app/
+ ## Live URL: https://ecommerce-cart-7oem.vercel.app/
 
 ## What You Can Try in the Live Demo
 
