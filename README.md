@@ -3,6 +3,8 @@
 A modern e‑commerce shopping cart web application built using **React**, **Vite**, **Redux Toolkit**, and **CSS**.
 It simulates a complete shopping experience — from browsing products to checkout and order confirmation.
 
+**Live Demo:** *(https://ecommerce-cart-7oem.vercel.app/)*  
+
 ---
 
 ##  Getting Started
@@ -33,7 +35,6 @@ git -v
 
 ```bash
 git clone https://github.com/chaitali9497/ecommerce-cart.git
-cd ecommerce-cart
 ```
 
 ---
@@ -103,37 +104,5 @@ src/
 * Custom 404 page
 
 ---
-
-##  GitHub Repository
-
-[https://github.com/chaitali9497/ecommerce-cart](https://github.com/chaitali9497/ecommerce-cart)
-
----
-Live Demo
-
- ShoppyGlobe – E-commerce Cart Application
-Experience the live application here:
-
- ## Live URL: https://ecommerce-cart-7oem.vercel.app/
-
-## What You Can Try in the Live Demo
-
-* Browse products across multiple categories
-
-* Search products with real-time highlighted results
-
-* View detailed product pages
-
-* Add products to cart and manage quantities
-
-* See dynamic price, subtotal, shipping, and discounts
-
-* Complete the checkout flow and view order confirmation
-
-* Test responsive design on mobile, tablet, and desktop
-
-##  Author
-
-**Chaitali Mahato**
 
 
